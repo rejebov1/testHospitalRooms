@@ -1,0 +1,40 @@
+spring:
+  mvc:
+    static-path-pattern: /resources/**
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  application:
+    name: booking
+  #  thymeleaf:
+  #    # Whether to check that the template exists before rendering it.
+  #    check-template: true
+  #    # Whether to check that the templates location exists.
+  #    check-template-location: true
+  #    enabled: true
+  #    encoding: UTF-8
+  #    mode: HTML
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testtask
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      maximumPoolSize: 20
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        format_sql: true
+        ddl-auto: create-drop
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+server:
+  port: 8088
+#  servlet:
+#    context-path: /
